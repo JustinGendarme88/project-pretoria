@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3n1wt7d3o2jn"]
+
+[ext_resource type="PackedScene" uid="uid://5rp0ckl0d8oe" path="res://scenes/npc/NPC.tscn" id="1_hjf7e"]
+
+[node name="TestArea" type="Node2D"]
+
+[node name="Npc" parent="." instance=ExtResource("1_hjf7e")]

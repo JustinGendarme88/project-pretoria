@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://5rp0ckl0d8oe"]
+
+[ext_resource type="Script" uid="uid://b5ggq86gjkjt0" path="res://scripts/npc/npc.gd" id="1_mi3m7"]
+[ext_resource type="Resource" uid="uid://c131ge3ox5cp1" path="res://data/npcs/karlach.tres" id="2_q24ip"]
+[ext_resource type="Texture2D" uid="uid://vlpvamapwrdc" path="res://assets/npc/npcTest.png" id="2_xwdbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q24ip"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l73vs"]
+size = Vector2(56.5, 51)
+
+[node name="Npc" type="CharacterBody2D"]
+script = ExtResource("1_mi3m7")
+data = ExtResource("2_q24ip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xwdbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q24ip")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l73vs")

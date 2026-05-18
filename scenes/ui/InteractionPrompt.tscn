@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://coldnqsqh4c6l"]
+
+[ext_resource type="Script" uid="uid://c3qtfldj5w2i4" path="res://scripts/ui/interaction_prompt.gd" id="1_4elof"]
+
+[node name="InteractionPrompt" type="CanvasLayer" groups=["interaction_prompt"]]
+script = ExtResource("1_4elof")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 157.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 37.0
+text = "[E] Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
