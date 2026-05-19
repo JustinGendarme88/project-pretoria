@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://cijvqiil28dnn"]
+
+[ext_resource type="PackedScene" uid="uid://d0crpuxah723a" path="res://scenes/ui/in_game_menu/tabs/inventory_tab.tscn" id="1_1topo"]
+[ext_resource type="Script" uid="uid://bfp0u7kvalepa" path="res://scripts/ui/in_game_menu/in_game_menu.gd" id="1_tlt64"]
+[ext_resource type="PackedScene" uid="uid://b86rl21ovblcm" path="res://scenes/ui/in_game_menu/tabs/status_tab.tscn" id="2_tlt64"]
+[ext_resource type="PackedScene" uid="uid://5y885u8jos10" path="res://scenes/ui/in_game_menu/tabs/reputation_tab.tscn" id="3_x8oih"]
+[ext_resource type="PackedScene" uid="uid://7jgs4ikaj0gh" path="res://scenes/ui/in_game_menu/tabs/options_tab.tscn" id="4_888tv"]
+
+[node name="InGameMenu" type="CanvasLayer"]
+script = ExtResource("1_tlt64")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="InventoryTab" parent="Panel/MarginContainer/TabContainer" instance=ExtResource("1_1topo")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="StatusTab" parent="Panel/MarginContainer/TabContainer" instance=ExtResource("2_tlt64")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ReputationTab" parent="Panel/MarginContainer/TabContainer" instance=ExtResource("3_x8oih")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="OptionsTab" parent="Panel/MarginContainer/TabContainer" instance=ExtResource("4_888tv")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
