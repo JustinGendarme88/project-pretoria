@@ -4,7 +4,7 @@ class_name ItemData
 enum ItemType {
 	MISC,
 	CONSUMABLE,
-	EQUIPMENT,
+	GEAR,
 	QUEST,
 	RESOURCE,
 	MATERIAL
