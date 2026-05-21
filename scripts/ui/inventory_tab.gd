@@ -7,8 +7,7 @@ extends Control
 @onready var quest_button: Button = $MarginContainer/HBoxContainer/CategoriesPanel/VBoxContainer/QuestButton
 @onready var materials_button: Button = $MarginContainer/HBoxContainer/CategoriesPanel/VBoxContainer/MaterialsButton
 
-@onready var grid_container: GridContainer = $MarginContainer/HBoxContainer/ItemsPanel/ScrollContainer/GridContainer
-
+@onready var grid_container: GridContainer = $MarginContainer/HBoxContainer/ItemsPanel/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var item_name_label: Label = $MarginContainer/HBoxContainer/ItemDetailsPanel/MarginContainer/VBoxContainer/ItemNameLabel
 @onready var item_description_label: Label = $MarginContainer/HBoxContainer/ItemDetailsPanel/MarginContainer/VBoxContainer/ItemDescriptionLabel
 @onready var use_button: Button = $MarginContainer/HBoxContainer/ItemDetailsPanel/MarginContainer/VBoxContainer/UseButton

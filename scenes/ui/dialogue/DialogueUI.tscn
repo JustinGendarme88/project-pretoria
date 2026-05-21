@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1mrc84bikotn"]
+[gd_scene load_steps=3 format=3 uid="uid://b1mrc84bikotn"]
 
 [ext_resource type="Script" uid="uid://dtn1oefva8pac" path="res://scripts/ui/dialogue_ui.gd" id="1_35ye1"]
+[ext_resource type="Texture2D" uid="uid://b7hmhn2th8bws" path="res://assets/ui/dialogue/dialBoxV10.png" id="2_ekwb7"]
 
 [node name="DialogueUi" type="CanvasLayer" groups=["dialogue_ui"]]
 script = ExtResource("1_35ye1")
@@ -13,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel" type="NinePatchRect" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
@@ -26,6 +27,11 @@ offset_right = -40.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
+texture = ExtResource("2_ekwb7")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
 layout_mode = 1

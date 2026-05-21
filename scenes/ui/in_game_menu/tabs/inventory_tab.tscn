@@ -1,7 +1,180 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0crpuxah723a"]
+[gd_scene load_steps=30 format=3 uid="uid://d0crpuxah723a"]
 
 [ext_resource type="Script" uid="uid://d1jf313lv7rd3" path="res://scripts/ui/inventory_tab.gd" id="1_jn673"]
 [ext_resource type="PackedScene" uid="uid://cf0heshut1ogk" path="res://scenes/ui/inventory_slot.tscn" id="2_vgytg"]
+[ext_resource type="Texture2D" uid="uid://ggi5vhttdf2g" path="res://assets/ui/buttons/button_selected.png" id="3_58h08"]
+[ext_resource type="Texture2D" uid="uid://b7hmhn2th8bws" path="res://assets/ui/dialogue/dialBoxV10.png" id="3_wxgxn"]
+[ext_resource type="Texture2D" uid="uid://db5ycvkvs0fka" path="res://assets/ui/other/line.png" id="4_dk6gf"]
+[ext_resource type="Texture2D" uid="uid://c8ujsvm1sbk8w" path="res://assets/ui/buttons/button_normal.png" id="4_wxgxn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wb7ro"]
+texture = ExtResource("3_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whscf"]
+texture = ExtResource("3_58h08")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxkm5"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31kr7"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rj8ml"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0oblx"]
+texture = ExtResource("3_58h08")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4en0"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1afv"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1o8w0"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58h08"]
+texture = ExtResource("3_58h08")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wxgxn"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ssfiu"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_587oa"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbwcw"]
+texture = ExtResource("3_58h08")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xtfst"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxdso"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_203n2"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kk8ls"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("3_wxgxn")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0c3p1"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("3_wxgxn")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dk6gf"]
+texture = ExtResource("3_58h08")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yflk"]
+texture = ExtResource("3_58h08")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2hhu"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xihji"]
+texture = ExtResource("4_wxgxn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -27,12 +200,35 @@ layout_mode = 2
 [node name="CategoriesPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wb7ro")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/CategoriesPanel"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 151.0
+offset_bottom = 33.0
+text = "Category"
+horizontal_alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="MarginContainer/HBoxContainer/CategoriesPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 14.0
+offset_bottom = 39.0
+scale = Vector2(18.375, 1.75)
+texture = ExtResource("4_dk6gf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CategoriesPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 53.0
+offset_right = -9.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
@@ -40,36 +236,73 @@ theme_override_constants/separation = 8
 [node name="GearButton" type="Button" parent="MarginContainer/HBoxContainer/CategoriesPanel/VBoxContainer"]
 custom_minimum_size = Vector2(130, 32)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_whscf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fxkm5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_31kr7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rj8ml")
 text = "Gear"
 
 [node name="ConsumablesButton" type="Button" parent="MarginContainer/HBoxContainer/CategoriesPanel/VBoxContainer"]
 custom_minimum_size = Vector2(130, 32)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_0oblx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k4en0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t1afv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1o8w0")
 text = "Consumables"
 
 [node name="QuestButton" type="Button" parent="MarginContainer/HBoxContainer/CategoriesPanel/VBoxContainer"]
 custom_minimum_size = Vector2(130, 32)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_58h08")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wxgxn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ssfiu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_587oa")
 text = "Quest"
 
 [node name="MaterialsButton" type="Button" parent="MarginContainer/HBoxContainer/CategoriesPanel/VBoxContainer"]
 custom_minimum_size = Vector2(130, 32)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_kbwcw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xtfst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qxdso")
+theme_override_styles/normal = SubResource("StyleBoxTexture_203n2")
 text = "Materials"
 
 [node name="ItemsPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_kk8ls")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/ItemsPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/ItemsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/ItemsPanel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ItemsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ItemsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/ItemsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_dk6gf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/ItemsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/ItemsPanel/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -78,11 +311,16 @@ columns = 5
 [node name="ItemDetailsPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0c3p1")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/ItemDetailsPanel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ItemDetailsPanel/MarginContainer"]
 layout_mode = 2
@@ -107,4 +345,8 @@ text = "Use"
 
 [node name="DropButton" type="Button" parent="MarginContainer/HBoxContainer/ItemDetailsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_dk6gf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1yflk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q2hhu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xihji")
 text = "Drop"

@@ -1,17 +1,16 @@
-extends PanelContainer
+extends TextureButton
 
 signal slot_clicked(item_data: ItemData)
 
-@onready var icon: TextureRect = $Control/TextureRect
-@onready var quantity_label: Label = $Control/QuantityLabel
+@onready var icon: TextureRect = $CenterContainer/TextureRect
+@onready var quantity_label: Label = $QuantityLabel
 
 var item_data: ItemData
 var quantity: int = 1
 
 func _ready() -> void:
-	print("InventorySlot ready")
-	$Control.gui_input.connect(_on_control_gui_input)
-	
+	pressed.connect(_on_pressed)
+
 func setup(new_item_data: ItemData, new_quantity: int = 1) -> void:
 	item_data = new_item_data
 	quantity = new_quantity
@@ -24,10 +23,5 @@ func setup(new_item_data: ItemData, new_quantity: int = 1) -> void:
 	else:
 		quantity_label.visible = false
 
-
-
-func _on_control_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			print("Slot clicked: ", item_data.display_name)
-			slot_clicked.emit(item_data)
+func _on_pressed() -> void:
+	slot_clicked.emit(item_data)

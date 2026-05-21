@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cijvqiil28dnn"]
+[gd_scene load_steps=8 format=3 uid="uid://cijvqiil28dnn"]
 
 [ext_resource type="PackedScene" uid="uid://d0crpuxah723a" path="res://scenes/ui/in_game_menu/tabs/inventory_tab.tscn" id="1_1topo"]
 [ext_resource type="Script" uid="uid://bfp0u7kvalepa" path="res://scripts/ui/in_game_menu/in_game_menu.gd" id="1_tlt64"]
 [ext_resource type="PackedScene" uid="uid://b86rl21ovblcm" path="res://scenes/ui/in_game_menu/tabs/status_tab.tscn" id="2_tlt64"]
+[ext_resource type="Texture2D" uid="uid://ds3youpq2cons" path="res://assets/ui/dialogue/dialBoxV11.png" id="2_x8oih"]
 [ext_resource type="PackedScene" uid="uid://5y885u8jos10" path="res://scenes/ui/in_game_menu/tabs/reputation_tab.tscn" id="3_x8oih"]
 [ext_resource type="PackedScene" uid="uid://7jgs4ikaj0gh" path="res://scenes/ui/in_game_menu/tabs/options_tab.tscn" id="4_888tv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_888tv"]
+texture = ExtResource("2_x8oih")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="InGameMenu" type="CanvasLayer"]
 process_mode = 3
@@ -23,6 +31,7 @@ offset_right = 450.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_888tv")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
