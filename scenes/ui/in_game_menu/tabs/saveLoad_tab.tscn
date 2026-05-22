@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmkekbugl4gg8"]
+
+[ext_resource type="PackedScene" uid="uid://dm2ybh7ij3djg" path="res://scenes/ui/save_load_menu.tscn" id="1_patuo"]
+
+[node name="SaveLoadTab" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="SaveLoadMenu" parent="." instance=ExtResource("1_patuo")]
+layout_mode = 1
+hide_on_start = false
+pause_game_when_opened = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmy4jpwo7emtb"]
+[gd_scene load_steps=8 format=3 uid="uid://cmy4jpwo7emtb"]
 
 [ext_resource type="Script" uid="uid://dn2bbvjfp4jgg" path="res://scripts/world/main.gd" id="1_5trm6"]
 [ext_resource type="PackedScene" uid="uid://d3n1wt7d3o2jn" path="res://scenes/worlds/TestArea.tscn" id="1_ycqmb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1mrc84bikotn" path="res://scenes/ui/dialogue/DialogueUI.tscn" id="3_a4vpq"]
 [ext_resource type="PackedScene" uid="uid://coldnqsqh4c6l" path="res://scenes/ui/InteractionPrompt.tscn" id="5_a4vpq"]
 [ext_resource type="PackedScene" uid="uid://cijvqiil28dnn" path="res://scenes/ui/in_game_menu/in_game_menu.tscn" id="6_enlt7"]
+[ext_resource type="PackedScene" uid="uid://lf8mkvaeutpw" path="res://scenes/ui/hud/player_hud.tscn" id="7_op12d"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5trm6")
@@ -20,3 +21,5 @@ position = Vector2(164, 137)
 [node name="InteractionPrompt" parent="." instance=ExtResource("5_a4vpq")]
 
 [node name="InGameMenu" parent="." instance=ExtResource("6_enlt7")]
+
+[node name="PlayerHUD" parent="." instance=ExtResource("7_op12d")]

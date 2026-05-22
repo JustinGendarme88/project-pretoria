@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce3alynf2mxtx"]
+
+[ext_resource type="Script" uid="uid://b811ac1tytp2b" path="res://scripts/ui/save_slot_entry.gd" id="1_63cdi"]
+[ext_resource type="Texture2D" uid="uid://b7hmhn2th8bws" path="res://assets/ui/dialogue/dialBoxV10.png" id="1_i1en7"]
+[ext_resource type="Theme" uid="uid://d2tjyptlegkrs" path="res://assets/ui/button_theme.tres" id="3_wfd8u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gur2x"]
+texture = ExtResource("1_i1en7")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="SaveSlotEntry" type="Panel"]
+custom_minimum_size = Vector2(700, 90)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -549.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_gur2x")
+script = ExtResource("1_63cdi")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_wfd8u")
+theme_override_constants/separation = 12
+
+[node name="InfoVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wfd8u")
+
+[node name="SlotNameLabel" type="Label" parent="MarginContainer/HBoxContainer/InfoVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name:"
+
+[node name="TimestampLabel" type="Label" parent="MarginContainer/HBoxContainer/InfoVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Time:"
+
+[node name="AreaLabel" type="Label" parent="MarginContainer/HBoxContainer/InfoVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Area:"
+
+[node name="SaveButton" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+text = "Load"
+
+[node name="DeleteButton" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+text = "Delete"

@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm2ybh7ij3djg"]
+
+[ext_resource type="Script" uid="uid://bpty8qotnk2em" path="res://scripts/ui/saveLoadMenu.gd" id="1_81axd"]
+[ext_resource type="PackedScene" uid="uid://ce3alynf2mxtx" path="res://scenes/ui/save_slot_entry.tscn" id="2_4ekot"]
+[ext_resource type="Texture2D" uid="uid://b7hmhn2th8bws" path="res://assets/ui/dialogue/dialBoxV10.png" id="3_aja8b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tguk3"]
+texture = ExtResource("3_aja8b")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[node name="SaveLoadMenu" type="Control" groups=["save_load_menu"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_81axd")
+save_slot_entry_scene = ExtResource("2_4ekot")
+show_close_button = false
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_tguk3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save Menu"
+horizontal_alignment = 1
+
+[node name="AutoLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Auto Save"
+
+[node name="AutoSlotsContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ManualLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Manual Save"
+
+[node name="ManualSlotsContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CloseButton" type="Button" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close Menu"

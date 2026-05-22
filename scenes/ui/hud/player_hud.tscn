@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://lf8mkvaeutpw"]
+
+[ext_resource type="Script" uid="uid://c7pglhrblhslf" path="res://scripts/ui/playerHud.gd" id="1_6k60i"]
+[ext_resource type="Texture2D" uid="uid://cjwpm3okggrqa" path="res://assets/ui/power/power1.png" id="2_b4vbk"]
+[ext_resource type="Texture2D" uid="uid://dtvpbcjxhsi88" path="res://assets/ui/power/power2.png" id="3_xx6x1"]
+[ext_resource type="Texture2D" uid="uid://bpgyxud5yvwpd" path="res://assets/ui/power/power3.png" id="4_5il2q"]
+[ext_resource type="Texture2D" uid="uid://cdiinemwo0qoq" path="res://assets/ui/power/power4.png" id="5_an01l"]
+[ext_resource type="Texture2D" uid="uid://dj4nonmqjni32" path="res://assets/ui/power/power5.png" id="6_516kv"]
+[ext_resource type="Texture2D" uid="uid://bkddwwekb65mn" path="res://assets/ui/healthbars/bar(empty).png" id="7_516kv"]
+[ext_resource type="Texture2D" uid="uid://d1nf2sc1b31ds" path="res://assets/ui/healthbars/red.png" id="8_8gorn"]
+[ext_resource type="Texture2D" uid="uid://bbchbtuje6k6b" path="res://assets/ui/healthbars/blue.png" id="9_7elk6"]
+[ext_resource type="Texture2D" uid="uid://dd71gddc0kvrh" path="res://assets/ui/healthbars/yellow.png" id="10_ljosv"]
+
+[node name="PlayerHUD" type="CanvasLayer"]
+script = ExtResource("1_6k60i")
+fire_icon = ExtResource("2_b4vbk")
+water_icon = ExtResource("3_xx6x1")
+wood_icon = ExtResource("4_5il2q")
+metal_icon = ExtResource("5_an01l")
+earth_icon = ExtResource("6_516kv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+offset_left = 16.0
+offset_top = 16.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PowerIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 10)
+layout_mode = 2
+value = 100.0
+fill_mode = 1
+texture_over = ExtResource("7_516kv")
+texture_progress = ExtResource("8_8gorn")
+
+[node name="SpiritBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 10)
+layout_mode = 2
+value = 100.0
+fill_mode = 1
+texture_over = ExtResource("7_516kv")
+texture_progress = ExtResource("9_7elk6")
+
+[node name="EnergyBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 10)
+layout_mode = 2
+value = 100.0
+fill_mode = 1
+texture_over = ExtResource("7_516kv")
+texture_progress = ExtResource("10_ljosv")
