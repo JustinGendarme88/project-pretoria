@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cfsk0q4eilxak"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_og55b"]
+[ext_resource type="Texture2D" uid="uid://bgwta2na70nbn" path="res://assets/items/consumables/potion_medium_red.png" id="1_yhhsu"]
+
+[resource]
+script = ExtResource("1_og55b")
+id = "potion_red_medium"
+display_name = "Medium red potion"
+description = "A standard healing potion. Restores 50% of the user's health."
+icon = ExtResource("1_yhhsu")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 10
+buy_price = 20
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

@@ -11,15 +11,22 @@ extends CanvasLayer
 @export var metal_icon: Texture2D
 @export var earth_icon: Texture2D
 
-var current_power := "fire"
+var current_power: String = "fire"
+
 
 func _ready() -> void:
+	PlayerStats.health_changed.connect(_on_health_changed)
+	PlayerStats.energy_changed.connect(_on_energy_changed)
+	PlayerStats.spirit_changed.connect(_on_spirit_changed)
+
 	update_power_icon()
-	update_bars(100, 100, 50)
+	PlayerStats.emit_all_changed()
+
 
 func set_power(power_name: String) -> void:
 	current_power = power_name
 	update_power_icon()
+
 
 func update_power_icon() -> void:
 	match current_power:
@@ -33,14 +40,28 @@ func update_power_icon() -> void:
 			power_icon.texture = metal_icon
 		"earth":
 			power_icon.texture = earth_icon
+		_:
+			power_icon.texture = fire_icon
 
-func update_bars(health: int, spirit: int, energy: int) -> void:
-	health_bar.value = health
-	spirit_bar.value = spirit
-	energy_bar.value = energy
-	
+
+func _on_health_changed(current_health: int, max_health: int) -> void:
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+
+
+func _on_energy_changed(current_energy: int, max_energy: int) -> void:
+	energy_bar.max_value = max_energy
+	energy_bar.value = current_energy
+
+
+func _on_spirit_changed(current_spirit: int, max_spirit: int) -> void:
+	spirit_bar.max_value = max_spirit
+	spirit_bar.value = current_spirit
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_right"):
 		set_power("fire")
+
 	if event.is_action_pressed("ui_left"):
 		set_power("water")

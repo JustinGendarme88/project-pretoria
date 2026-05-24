@@ -26,6 +26,7 @@ ItemDatabase="*res://autoload/item_database.gd"
 ReputationManager="*res://autoload/reputation_manager.gd"
 DialogueManager="*res://autoload/DialogueManager.gd"
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+PlayerStats="*res://autoload/PlayerStats.gd"
 
 [editor_plugins]
 

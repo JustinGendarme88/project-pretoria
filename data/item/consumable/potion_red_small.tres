@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bkguemobakbh1"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_0obg5"]
+[ext_resource type="Texture2D" uid="uid://cwverjswrawyj" path="res://assets/items/consumables/potion_small_red.png" id="1_tfrly"]
+
+[resource]
+script = ExtResource("1_0obg5")
+id = "potion_red_small"
+display_name = "Small red potion"
+description = "A small vial filled with red liquid. Restores 25% of the user's health."
+icon = ExtResource("1_tfrly")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 5
+buy_price = 10
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

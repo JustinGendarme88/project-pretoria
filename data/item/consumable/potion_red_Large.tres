@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ggdp5clf6p0q"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_kb0vi"]
+[ext_resource type="Texture2D" uid="uid://xayfq0p2xtlc" path="res://assets/items/consumables/potion_large_red.png" id="1_og0k1"]
+
+[resource]
+script = ExtResource("1_kb0vi")
+id = "potion_red_large"
+display_name = "Large red potion"
+description = "A powerful red potion capable of closing serious wounds. Restores 75% of the user's health."
+icon = ExtResource("1_og0k1")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 20
+buy_price = 30
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

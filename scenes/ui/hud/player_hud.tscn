@@ -20,7 +20,6 @@ metal_icon = ExtResource("5_an01l")
 earth_icon = ExtResource("6_516kv")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = -1
 offset_left = 16.0
 offset_top = 16.0
 scale = Vector2(2, 2)

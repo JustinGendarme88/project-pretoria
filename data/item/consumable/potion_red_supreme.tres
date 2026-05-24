@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cbbgl7501wym8"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_14sdb"]
+
+[resource]
+script = ExtResource("1_14sdb")
+id = ""
+display_name = "Supreme red potion"
+description = "An extremely rare alchemical creation that fully restores health. Restores 100% of the user's health."
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 30
+buy_price = 40
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"
