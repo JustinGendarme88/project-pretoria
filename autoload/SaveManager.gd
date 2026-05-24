@@ -4,8 +4,50 @@ const SAVE_DIR := "user://saves/"
 const MANUAL_SLOT_COUNT := 10
 const AUTO_SLOT_COUNT := 3
 
+var current_autosave_slot := 1
+
 func _ready() -> void:
 	DirAccess.make_dir_recursive_absolute(SAVE_DIR)
+
+
+func can_save() -> bool:
+	if GameManager.player == null:
+		return false
+
+	if not "current_state" in GameManager.player:
+		return true
+
+	match GameManager.player.current_state:
+		GameManager.player.PlayerState.NORMAL:
+			return true
+
+		GameManager.player.PlayerState.MENU:
+			return true
+
+		_:
+			return false
+
+
+func is_valid_slot(slot: int, is_auto_save: bool = false) -> bool:
+	if is_auto_save:
+		return slot >= 1 and slot <= AUTO_SLOT_COUNT
+
+	return slot >= 1 and slot <= MANUAL_SLOT_COUNT
+
+
+func get_player_save_data() -> Dictionary:
+	if GameManager.player == null:
+		return {
+			"position_x": 0,
+			"position_y": 0,
+			"health": 0
+		}
+
+	return {
+		"position_x": GameManager.player.global_position.x,
+		"position_y": GameManager.player.global_position.y,
+		"health": GameManager.player.health
+	}
 
 
 func get_manual_save_path(slot: int) -> String:
@@ -16,7 +58,15 @@ func get_autosave_path(slot: int) -> String:
 	return SAVE_DIR + "autosave_%02d.save" % slot
 
 
-func save_game(slot: int, is_auto_save: bool = false) -> void:
+func save_game(slot: int, is_auto_save: bool = false) -> bool:
+	if not is_valid_slot(slot, is_auto_save):
+		push_warning("Invalid save slot: %d" % slot)
+		return false
+
+	if not is_auto_save and not can_save():
+		push_warning("Cannot save right now.")
+		return false
+
 	var path := ""
 
 	if is_auto_save:
@@ -24,28 +74,41 @@ func save_game(slot: int, is_auto_save: bool = false) -> void:
 	else:
 		path = get_manual_save_path(slot)
 
+	var save_name := "Save Slot %d" % slot
+	if is_auto_save:
+		save_name = "Autosave %d" % slot
+
 	var save_data := {
 		"version": 1,
-		"save_name": "Save Slot %d" % slot,
+		"save_name": save_name,
 		"timestamp": Time.get_datetime_string_from_system(),
 		"current_scene": get_tree().current_scene.scene_file_path,
 
-		"player": {
-			"position_x": GameManager.player.global_position.x,
-			"position_y": GameManager.player.global_position.y,
-			"health": GameManager.player.health
-		},
+		"player": get_player_save_data(),
 
 		"flags": FlagManager.flags,
-		"inventory": InventoryManager.get_save_data()
+		"inventory": InventoryManager.get_save_data(),
+		"quests": QuestManager.get_save_data()
 	}
 
 	var file := FileAccess.open(path, FileAccess.WRITE)
+
+	if file == null:
+		push_error("Failed to open save file: " + path)
+		return false
+
 	file.store_string(JSON.stringify(save_data, "\t"))
 	file.close()
 
+	print("Game saved: ", path)
+	return true
 
-func load_game(slot: int, is_auto_save: bool = false) -> void:
+
+func load_game(slot: int, is_auto_save: bool = false) -> bool:
+	if not is_valid_slot(slot, is_auto_save):
+		push_warning("Invalid save slot: %d" % slot)
+		return false
+
 	var path := ""
 
 	if is_auto_save:
@@ -55,9 +118,14 @@ func load_game(slot: int, is_auto_save: bool = false) -> void:
 
 	if not FileAccess.file_exists(path):
 		print("No save found: ", path)
-		return
+		return false
 
 	var file := FileAccess.open(path, FileAccess.READ)
+
+	if file == null:
+		push_error("Failed to open save file: " + path)
+		return false
+
 	var content := file.get_as_text()
 	file.close()
 
@@ -66,11 +134,12 @@ func load_game(slot: int, is_auto_save: bool = false) -> void:
 
 	if result != OK:
 		print("Failed to parse save file.")
-		return
+		return false
 
 	var save_data: Dictionary = json.data
 
-	_apply_save_data(save_data)
+	await _apply_save_data(save_data)
+	return true
 
 
 func _apply_save_data(save_data: Dictionary) -> void:
@@ -80,22 +149,37 @@ func _apply_save_data(save_data: Dictionary) -> void:
 	if save_data.has("inventory"):
 		InventoryManager.load_save_data(save_data["inventory"])
 
+	if save_data.has("quests"):
+		QuestManager.load_save_data(save_data["quests"])
+
 	var scene_path: String = save_data.get("current_scene", "")
 
 	if scene_path != "":
+		GameManager.player = null
+
 		await get_tree().change_scene_to_file(scene_path)
 		await get_tree().process_frame
+		await get_tree().process_frame
 
-		if GameManager.player and save_data.has("player"):
+		if GameManager.player != null and save_data.has("player"):
 			var player_data: Dictionary = save_data["player"]
+
 			GameManager.player.global_position = Vector2(
 				player_data.get("position_x", 0),
 				player_data.get("position_y", 0)
 			)
-			GameManager.player.health = player_data.get("health", GameManager.player.max_health)
+
+			GameManager.player.health = player_data.get(
+				"health",
+				GameManager.player.max_health
+			)
 
 
 func delete_save(slot: int, is_auto_save: bool = false) -> void:
+	if not is_valid_slot(slot, is_auto_save):
+		push_warning("Invalid save slot: %d" % slot)
+		return
+
 	var path := ""
 
 	if is_auto_save:
@@ -108,6 +192,11 @@ func delete_save(slot: int, is_auto_save: bool = false) -> void:
 
 
 func get_save_info(slot: int, is_auto_save: bool = false) -> Dictionary:
+	if not is_valid_slot(slot, is_auto_save):
+		return {
+			"exists": false
+		}
+
 	var path := ""
 
 	if is_auto_save:
@@ -121,6 +210,12 @@ func get_save_info(slot: int, is_auto_save: bool = false) -> Dictionary:
 		}
 
 	var file := FileAccess.open(path, FileAccess.READ)
+
+	if file == null:
+		return {
+			"exists": false
+		}
+
 	var content := file.get_as_text()
 	file.close()
 
@@ -138,3 +233,14 @@ func get_save_info(slot: int, is_auto_save: bool = false) -> Dictionary:
 		"timestamp": data.get("timestamp", "Unknown Date"),
 		"scene": data.get("current_scene", "")
 	}
+
+func create_autosave() -> bool:
+	var success := await save_game(current_autosave_slot, true)
+
+	if success:
+		current_autosave_slot += 1
+
+		if current_autosave_slot > AUTO_SLOT_COUNT:
+			current_autosave_slot = 1
+
+	return success

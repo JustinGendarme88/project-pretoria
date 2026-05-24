@@ -27,6 +27,8 @@ func _ready():
 	z_index = 10
 	health = max_health
 	set_state(PlayerState.NORMAL)
+	add_to_group("player")
+	GameManager.register_player(self)
 
 
 func _process(_delta):

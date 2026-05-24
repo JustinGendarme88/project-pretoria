@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cf4vn701ken62"]
+
+[ext_resource type="Texture2D" uid="uid://bxbjkkih84cqv" path="res://assets/items/quest/bag.png" id="1_i8vd6"]
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_kk6uh"]
+
+[resource]
+script = ExtResource("1_kk6uh")
+id = "drifted_supply_bag"
+display_name = "Drifted supply bag"
+description = "A damp canvas bag washed ashore by the sea. It contains various salvaged resources that could be used to build a shelter and start a campfire."
+icon = ExtResource("1_i8vd6")
+item_type = 3
+stackable = false
+max_stack = 1
+sellable = false
+sell_price = 0
+buy_price = 0
+quest_item = true
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://coiniudvglm5t"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_jb1py"]
+[ext_resource type="Texture2D" uid="uid://cgpiveat5dkgk" path="res://assets/items/consumables/potion_small_blue.png" id="1_ojtkt"]
+
+[resource]
+script = ExtResource("1_jb1py")
+id = "potion_blue_small"
+display_name = "Small blue potion"
+description = "A small vial filled with blue liquid. Restores 25% of spritual energy."
+icon = ExtResource("1_ojtkt")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 10
+buy_price = 20
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

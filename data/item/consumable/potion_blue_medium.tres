@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d3keo88uf4lus"]
+
+[ext_resource type="Texture2D" uid="uid://c3d02pf10ovye" path="res://assets/items/consumables/potion_medium_blue.png" id="1_325x0"]
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_dcxd2"]
+
+[resource]
+script = ExtResource("1_dcxd2")
+id = "potion_blue_medium"
+display_name = "Medium blue potion"
+description = "A refined magical potion used by spellcasters. Restores 50% of the user's spiritual energy."
+icon = ExtResource("1_325x0")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 20
+buy_price = 40
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

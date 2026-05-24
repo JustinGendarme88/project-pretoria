@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cbbgl7501wym8"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cbbgl7501wym8"]
 
+[ext_resource type="Texture2D" uid="uid://d2w7brgjbelfw" path="res://assets/items/consumables/potion_supreme_red.png" id="1_7lcst"]
 [ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_14sdb"]
 
 [resource]
 script = ExtResource("1_14sdb")
-id = ""
+id = "potion_red_supreme"
 display_name = "Supreme red potion"
 description = "An extremely rare alchemical creation that fully restores health. Restores 100% of the user's health."
+icon = ExtResource("1_7lcst")
 item_type = 1
 stackable = true
 max_stack = 99

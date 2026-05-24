@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=6 format=3 uid="uid://dhe3cxcnyokf0"]
+
+[ext_resource type="Script" uid="uid://dk7qxhu8cvyg2" path="res://scripts/systems/quests/quest_data.gd" id="1_yis7c"]
+[ext_resource type="Script" uid="uid://dfl7mtjjwpfey" path="res://scripts/systems/quests/quest_step_data.gd" id="2_1j4mk"]
+
+[sub_resource type="Resource" id="Resource_yis7c"]
+script = ExtResource("2_1j4mk")
+id = "wake_up_on_beach"
+title = "Wake up on the beach"
+description = "You wake up alone on the shore of a mysterious island."
+hidden_until_active = false
+optional = false
+metadata/_custom_type_script = "uid://dfl7mtjjwpfey"
+
+[sub_resource type="Resource" id="Resource_1j4mk"]
+script = ExtResource("2_1j4mk")
+id = "find_drifted_supply_bag"
+title = "Find the drifted supply bag"
+description = "Search the beach for a bag containing useful materials."
+hidden_until_active = false
+optional = false
+metadata/_custom_type_script = "uid://dfl7mtjjwpfey"
+
+[sub_resource type="Resource" id="Resource_nm86q"]
+script = ExtResource("2_1j4mk")
+id = "build_camp"
+title = "Build a basic camp"
+description = " Use the recovered materials to build a tent and light a campfire."
+hidden_until_active = false
+optional = false
+metadata/_custom_type_script = "uid://dfl7mtjjwpfey"
+
+[resource]
+script = ExtResource("1_yis7c")
+id = "find_supply_bag"
+title = "Build a First Shelter"
+description = "Find useful resources after waking up on the mysterious island."
+category = "Main Quest"
+steps = Array[ExtResource("2_1j4mk")]([SubResource("Resource_yis7c"), SubResource("Resource_1j4mk"), SubResource("Resource_nm86q")])
+metadata/_custom_type_script = "uid://dk7qxhu8cvyg2"

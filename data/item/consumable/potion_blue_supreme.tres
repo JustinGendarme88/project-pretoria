@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cu4s6w3w3mpt4"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_2smvw"]
+[ext_resource type="Texture2D" uid="uid://t0xe6bwmtdmc" path="res://assets/items/consumables/potion_supreme_blue.png" id="1_sv372"]
+
+[resource]
+script = ExtResource("1_2smvw")
+id = "potion_blue_supreme"
+display_name = "Supreme blue potion"
+description = "A legendary spirit potion overflowing with mystical power. Fully restores the user's spiritual energy."
+icon = ExtResource("1_sv372")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 80
+buy_price = 160
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

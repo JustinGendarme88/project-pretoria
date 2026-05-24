@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://caas2eynd6b31"]
+
+[ext_resource type="Script" uid="uid://i4jcnkfs4edf" path="res://scripts/ui/in_game_menu/tabs/quest_journal_tab.gd" id="1_ppi6j"]
+
+[node name="QuestJournalTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppi6j")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="QuestListPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/QuestListPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/QuestListPanel/PanelContainer"]
+layout_mode = 2
+
+[node name="QuestList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/QuestListPanel/PanelContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="QuestDetailsPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/QuestDetailsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/QuestDetailsPanel/PanelContainer"]
+layout_mode = 2
+
+[node name="QuestDetails" type="VBoxContainer" parent="MarginContainer/HBoxContainer/QuestDetailsPanel/PanelContainer/ScrollContainer"]
+layout_mode = 2

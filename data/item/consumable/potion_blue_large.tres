@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://durgudxiidiag"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_3g8l2"]
+[ext_resource type="Texture2D" uid="uid://dcyuatmiy38b4" path="res://assets/items/consumables/potion_large_blue.png" id="1_dse01"]
+
+[resource]
+script = ExtResource("1_3g8l2")
+id = "potion_red_large"
+display_name = "Large blue potion"
+description = "A powerful blue elixir infused with concentrated arcane essence. Restores 75% of the user's spiritual energy."
+icon = ExtResource("1_dse01")
+item_type = 1
+stackable = true
+max_stack = 99
+sellable = true
+sell_price = 40
+buy_price = 80
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cijvqiil28dnn"]
+[gd_scene load_steps=10 format=3 uid="uid://cijvqiil28dnn"]
 
 [ext_resource type="PackedScene" uid="uid://d0crpuxah723a" path="res://scenes/ui/in_game_menu/tabs/inventory_tab.tscn" id="1_1topo"]
 [ext_resource type="Script" uid="uid://bfp0u7kvalepa" path="res://scripts/ui/in_game_menu/in_game_menu.gd" id="1_tlt64"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://5y885u8jos10" path="res://scenes/ui/in_game_menu/tabs/reputation_tab.tscn" id="3_x8oih"]
 [ext_resource type="PackedScene" uid="uid://7jgs4ikaj0gh" path="res://scenes/ui/in_game_menu/tabs/options_tab.tscn" id="4_888tv"]
 [ext_resource type="PackedScene" uid="uid://dmkekbugl4gg8" path="res://scenes/ui/in_game_menu/tabs/saveLoad_tab.tscn" id="7_888tv"]
+[ext_resource type="PackedScene" uid="uid://caas2eynd6b31" path="res://scenes/ui/in_game_menu/tabs/quest_journal_tab.tscn" id="8_njyuu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_888tv"]
 texture = ExtResource("2_x8oih")
@@ -73,3 +74,8 @@ metadata/_tab_index = 3
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
+
+[node name="QuestJournalTab" parent="Panel/MarginContainer/TabContainer" instance=ExtResource("8_njyuu")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5

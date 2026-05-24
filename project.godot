@@ -21,12 +21,12 @@ FlagManager="*res://autoload/FlagManager.gd"
 GameManager="*res://autoload/GameManager.gd"
 InventoryManager="*res://autoload/InventoryManager.gd"
 SaveManager="*res://autoload/SaveManager.gd"
-QuestManager="*res://autoload/QuestManager.gd"
 ItemDatabase="*res://autoload/item_database.gd"
 ReputationManager="*res://autoload/reputation_manager.gd"
 DialogueManager="*res://autoload/DialogueManager.gd"
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 PlayerStats="*res://autoload/PlayerStats.gd"
+QuestManager="*res://autoload/Quest_manager.gd"
 
 [editor_plugins]
 

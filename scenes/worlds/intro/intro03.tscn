@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=4 uid="uid://dl176cyd6j0n6"]
+[gd_scene load_steps=6 format=4 uid="uid://dl176cyd6j0n6"]
 
 [ext_resource type="TileSet" uid="uid://bhpfilyolmvaw" path="res://assets/tilesets/tile_set_A_B.tres" id="1_nr8fg"]
+[ext_resource type="Script" uid="uid://xe5o2ef4skw2" path="res://scripts/systems/transition/spawn_point.gd" id="2_wrvhy"]
+[ext_resource type="Script" uid="uid://btwgj64c2b2he" path="res://scripts/systems/transition/transition_area.gd" id="3_32vx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrvhy"]
+size = Vector2(306, 51.2227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70h5k"]
+size = Vector2(272, 56)
 
 [node name="Intro03" type="Node2D"]
 
@@ -15,3 +23,32 @@ tile_set = ExtResource("1_nr8fg")
 [node name="TileMapLayer_two" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAhAAQAAgAMACQAAAAhAAUAAgAMACUAAAAmAAQAAgAMACQAABAmAAUAAgAMACUAABA=")
 tile_set = ExtResource("1_nr8fg")
+
+[node name="Marker2D(intro03A)" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(1151.49, 1164.96)
+script = ExtResource("2_wrvhy")
+spawn_id = "intro03A"
+
+[node name="Marker2D(intro03B)" type="Marker2D" parent="." groups=["spawn_points"]]
+position = Vector2(1152.24, 83.8158)
+script = ExtResource("2_wrvhy")
+spawn_id = "intro03B"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1149.99, 1204.78)
+script = ExtResource("3_32vx5")
+target_scene_path = "uid://dbuwt0hg0jlj6"
+target_spawn_id = "intro02B"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.01074, 15.6113)
+shape = SubResource("RectangleShape2D_wrvhy")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1152.24, 22.9594)
+script = ExtResource("3_32vx5")
+target_scene_path = "uid://koadrog1hk00"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-4.24353, 8.04059)
+shape = SubResource("RectangleShape2D_70h5k")
