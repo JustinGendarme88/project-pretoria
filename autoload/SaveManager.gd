@@ -1,10 +1,13 @@
 extends Node
 
+signal saves_changed
+
 const SAVE_DIR := "user://saves/"
 const MANUAL_SLOT_COUNT := 10
 const AUTO_SLOT_COUNT := 3
 
 var current_autosave_slot := 1
+
 
 func _ready() -> void:
 	DirAccess.make_dir_recursive_absolute(SAVE_DIR)
@@ -20,10 +23,8 @@ func can_save() -> bool:
 	match GameManager.player.current_state:
 		GameManager.player.PlayerState.NORMAL:
 			return true
-
 		GameManager.player.PlayerState.MENU:
 			return true
-
 		_:
 			return false
 
@@ -82,10 +83,9 @@ func save_game(slot: int, is_auto_save: bool = false) -> bool:
 		"version": 1,
 		"save_name": save_name,
 		"timestamp": Time.get_datetime_string_from_system(),
-		"current_scene": get_tree().current_scene.scene_file_path,
-
+		"main_scene": GameManager.main_scene_path,
+		"current_world_scene": GameManager.current_world_scene_path,
 		"player": get_player_save_data(),
-
 		"flags": FlagManager.flags,
 		"inventory": InventoryManager.get_save_data(),
 		"quests": QuestManager.get_save_data()
@@ -101,6 +101,7 @@ func save_game(slot: int, is_auto_save: bool = false) -> bool:
 	file.close()
 
 	print("Game saved: ", path)
+	saves_changed.emit()
 	return true
 
 
@@ -152,27 +153,52 @@ func _apply_save_data(save_data: Dictionary) -> void:
 	if save_data.has("quests"):
 		QuestManager.load_save_data(save_data["quests"])
 
-	var scene_path: String = save_data.get("current_scene", "")
+	var main_scene_path: String = save_data.get("main_scene", GameManager.main_scene_path)
+	var world_scene_path: String = save_data.get("current_world_scene", "")
 
-	if scene_path != "":
-		GameManager.player = null
+	if main_scene_path == "":
+		return
 
-		await get_tree().change_scene_to_file(scene_path)
-		await get_tree().process_frame
-		await get_tree().process_frame
+	GameManager.player = null
+	GameManager.world_container = null
+	GameManager.current_world = null
+	GameManager.is_changing_zone = false
+	GameManager.ui_open = false
+	get_tree().paused = false
 
-		if GameManager.player != null and save_data.has("player"):
-			var player_data: Dictionary = save_data["player"]
+	await get_tree().change_scene_to_file(main_scene_path)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
 
-			GameManager.player.global_position = Vector2(
-				player_data.get("position_x", 0),
-				player_data.get("position_y", 0)
-			)
+	if GameManager.world_container == null:
+		push_warning("WorldContainer was not registered after loading main scene.")
+		return
 
-			GameManager.player.health = player_data.get(
-				"health",
-				GameManager.player.max_health
-			)
+	if world_scene_path != "":
+		await GameManager.change_zone(world_scene_path, "default")
+
+	await get_tree().process_frame
+	await get_tree().process_frame
+
+	if GameManager.player != null and save_data.has("player"):
+		var player_data: Dictionary = save_data["player"]
+
+		GameManager.player.global_position = Vector2(
+			player_data.get("position_x", 0),
+			player_data.get("position_y", 0)
+		)
+
+		GameManager.player.health = player_data.get(
+			"health",
+			GameManager.player.max_health
+		)
+
+		if "current_state" in GameManager.player:
+			GameManager.player.current_state = GameManager.player.PlayerState.NORMAL
+
+	GameManager.ui_open = false
+	get_tree().paused = false
 
 
 func delete_save(slot: int, is_auto_save: bool = false) -> void:
@@ -189,6 +215,7 @@ func delete_save(slot: int, is_auto_save: bool = false) -> void:
 
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(path)
+		saves_changed.emit()
 
 
 func get_save_info(slot: int, is_auto_save: bool = false) -> Dictionary:
@@ -231,8 +258,9 @@ func get_save_info(slot: int, is_auto_save: bool = false) -> Dictionary:
 		"exists": true,
 		"save_name": data.get("save_name", "Unknown Save"),
 		"timestamp": data.get("timestamp", "Unknown Date"),
-		"scene": data.get("current_scene", "")
+		"scene": data.get("current_world_scene", data.get("current_scene", ""))
 	}
+
 
 func create_autosave() -> bool:
 	var success := await save_game(current_autosave_slot, true)

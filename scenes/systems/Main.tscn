@@ -1,20 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmy4jpwo7emtb"]
+[gd_scene load_steps=10 format=3 uid="uid://cmy4jpwo7emtb"]
 
 [ext_resource type="Script" uid="uid://dn2bbvjfp4jgg" path="res://scripts/world/main.gd" id="1_5trm6"]
-[ext_resource type="PackedScene" uid="uid://d3n1wt7d3o2jn" path="res://scenes/worlds/TestArea.tscn" id="1_ycqmb"]
 [ext_resource type="PackedScene" uid="uid://djjt56r31venk" path="res://scenes/player/Player.tscn" id="2_5trm6"]
 [ext_resource type="PackedScene" uid="uid://b1mrc84bikotn" path="res://scenes/ui/dialogue/DialogueUI.tscn" id="3_a4vpq"]
 [ext_resource type="PackedScene" uid="uid://coldnqsqh4c6l" path="res://scenes/ui/InteractionPrompt.tscn" id="5_a4vpq"]
 [ext_resource type="PackedScene" uid="uid://cijvqiil28dnn" path="res://scenes/ui/in_game_menu/in_game_menu.tscn" id="6_enlt7"]
+[ext_resource type="PackedScene" uid="uid://b0bbrjplwo4ps" path="res://scenes/worlds/intro/intro01.tscn" id="7_odtxi"]
 [ext_resource type="PackedScene" uid="uid://lf8mkvaeutpw" path="res://scenes/ui/hud/player_hud.tscn" id="7_op12d"]
+[ext_resource type="Script" uid="uid://dw4eyttc8ucb2" path="res://scripts/systems/transition/transitionFade.gd" id="8_odtxi"]
+[ext_resource type="Script" uid="uid://dvnlbnfl6mmu5" path="res://scripts/systems/transition/locationBanner.gd" id="9_3fs6w"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5trm6")
 
-[node name="TestArea" parent="." instance=ExtResource("1_ycqmb")]
+[node name="WorldContainer" type="Node2D" parent="."]
+
+[node name="Intro01" parent="WorldContainer" instance=ExtResource("7_odtxi")]
 
 [node name="Player" parent="." instance=ExtResource("2_5trm6")]
-position = Vector2(164, 137)
+position = Vector2(1110, -426)
 
 [node name="DialogueUi" parent="." instance=ExtResource("3_a4vpq")]
 
@@ -23,3 +27,31 @@ position = Vector2(164, 137)
 [node name="InGameMenu" parent="." instance=ExtResource("6_enlt7")]
 
 [node name="PlayerHUD" parent="." instance=ExtResource("7_op12d")]
+
+[node name="TransitionFade" type="CanvasLayer" parent="."]
+script = ExtResource("8_odtxi")
+
+[node name="ColorRect" type="ColorRect" parent="TransitionFade"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LocationBanner" type="CanvasLayer" parent="."]
+script = ExtResource("9_3fs6w")
+
+[node name="MarginContainer" type="MarginContainer" parent="LocationBanner"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="LocationBanner/MarginContainer"]
+layout_mode = 2
+text = "Mysterious Beach"

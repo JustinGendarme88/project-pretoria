@@ -17,11 +17,18 @@ func _ready() -> void:
 	close_button.visible = show_close_button
 	close_button.pressed.connect(close_menu)
 
+	if not SaveManager.saves_changed.is_connected(_refresh_slots):
+		SaveManager.saves_changed.connect(_refresh_slots)
+
 	_refresh_slots()
 
 
 func open_menu() -> void:
 	visible = true
+	GameManager.ui_open = true
+
+	if GameManager.player != null and "current_state" in GameManager.player:
+		GameManager.player.current_state = GameManager.player.PlayerState.MENU
 
 	if pause_game_when_opened:
 		get_tree().paused = true
@@ -31,6 +38,10 @@ func open_menu() -> void:
 
 func close_menu() -> void:
 	visible = false
+	GameManager.ui_open = false
+
+	if GameManager.player != null and "current_state" in GameManager.player:
+		GameManager.player.current_state = GameManager.player.PlayerState.NORMAL
 
 	if pause_game_when_opened:
 		get_tree().paused = false
@@ -69,18 +80,29 @@ func _clear_container(container: Node) -> void:
 
 
 func _on_save_requested(slot: int) -> void:
-	SaveManager.save_game(slot, false)
-	_refresh_slots()
+	var success := await SaveManager.save_game(slot, false)
+
+	if success:
+		_refresh_slots()
 
 
 func _on_load_requested(slot: int, is_auto_save: bool) -> void:
+	GameManager.ui_open = false
+
+	if GameManager.player != null and "current_state" in GameManager.player:
+		GameManager.player.current_state = GameManager.player.PlayerState.NORMAL
+
 	if pause_game_when_opened:
 		get_tree().paused = false
 
 	visible = false
-	SaveManager.load_game(slot, is_auto_save)
+
+	var success := await SaveManager.load_game(slot, is_auto_save)
+
+	if not success:
+		print("Load failed.")
 
 
-func _on_delete_requested(slot: int) -> void:
-	SaveManager.delete_save(slot, false)
+func _on_delete_requested(slot: int, is_auto_save: bool = false) -> void:
+	SaveManager.delete_save(slot, is_auto_save)
 	_refresh_slots()

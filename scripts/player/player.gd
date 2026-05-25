@@ -29,6 +29,10 @@ func _ready():
 	set_state(PlayerState.NORMAL)
 	add_to_group("player")
 	GameManager.register_player(self)
+	add_to_group("player")
+
+	await get_tree().process_frame
+	_apply_camera_limits()
 
 
 func _process(_delta):
@@ -172,8 +176,15 @@ func reset_player() -> void:
 	set_state(PlayerState.NORMAL)
 
 
-func set_camera_limits(left: int, top: int, right: int, bottom: int) -> void:
-	camera.limit_left = left
-	camera.limit_top = top
-	camera.limit_right = right
-	camera.limit_bottom = bottom
+func _apply_camera_limits() -> void:
+	var bounds_nodes := get_tree().get_nodes_in_group("camera_bounds")
+
+	if bounds_nodes.is_empty():
+		return
+
+	var bounds: CameraBounds = bounds_nodes[0]
+
+	camera.limit_left = bounds.limit_left
+	camera.limit_top = bounds.limit_top
+	camera.limit_right = bounds.limit_right
+	camera.limit_bottom = bounds.limit_bottom
