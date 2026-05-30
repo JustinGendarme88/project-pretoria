@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://civtvr02tx403"]
+
+[ext_resource type="Script" uid="uid://btdvcjqbnp8ce" path="res://scripts/systems/dungeon/dungeonMain.gd" id="1_8glcl"]
+[ext_resource type="Script" uid="uid://ccev026nhtvjt" path="res://scripts/player/place_holder.gd" id="2_5afpd"]
+[ext_resource type="Texture2D" uid="uid://dlvkvtp1rp4ok" path="res://assets/characters/place_holder.png" id="3_jam5d"]
+[ext_resource type="Script" uid="uid://wd5k80rsluf3" path="res://scripts/systems/camera/camera_place_holder.gd" id="4_jam5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jap3w"]
+
+[node name="DungeonMain" type="Node2D" groups=["dungeon_main"]]
+script = ExtResource("1_8glcl")
+
+[node name="RoomContainer" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(662, 449)
+script = ExtResource("2_5afpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_jap3w")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_jam5d")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_jam5d")
+target = NodePath("../CharacterBody2D")

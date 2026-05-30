@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://caas2eynd6b31"]
+[gd_scene load_steps=7 format=3 uid="uid://caas2eynd6b31"]
 
 [ext_resource type="Script" uid="uid://i4jcnkfs4edf" path="res://scripts/ui/in_game_menu/tabs/quest_journal_tab.gd" id="1_ppi6j"]
+[ext_resource type="Texture2D" uid="uid://b7hmhn2th8bws" path="res://assets/ui/dialogue/dialBoxV10.png" id="2_feqvu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28j1c"]
+texture = ExtResource("2_feqvu")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feqvu"]
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nw20"]
+texture = ExtResource("2_feqvu")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_at8sa"]
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
 
 [node name="QuestJournalTab" type="Control"]
 layout_mode = 3
@@ -27,6 +54,7 @@ theme_override_constants/separation = 16
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_28j1c")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/QuestListPanel"]
 layout_mode = 1
@@ -35,6 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_feqvu")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/QuestListPanel/PanelContainer"]
 layout_mode = 2
@@ -45,6 +74,7 @@ layout_mode = 2
 [node name="QuestDetailsPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_1nw20")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/QuestDetailsPanel"]
 layout_mode = 1
@@ -53,6 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_at8sa")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/QuestDetailsPanel/PanelContainer"]
 layout_mode = 2

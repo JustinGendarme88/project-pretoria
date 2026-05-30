@@ -27,6 +27,7 @@ DialogueManager="*res://autoload/DialogueManager.gd"
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 PlayerStats="*res://autoload/PlayerStats.gd"
 QuestManager="*res://autoload/Quest_manager.gd"
+DungeonManager="*res://autoload/Dungeon_manager.gd"
 
 [editor_plugins]
 
