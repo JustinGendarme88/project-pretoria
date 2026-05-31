@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djuqvo0cyair2"]
+
+[ext_resource type="Texture2D" uid="uid://wdx1abxorgea" path="res://assets/city/building/place_holder_building_02.png" id="1_hgx35"]
+
+[node name="TownHallOutside2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hgx35")

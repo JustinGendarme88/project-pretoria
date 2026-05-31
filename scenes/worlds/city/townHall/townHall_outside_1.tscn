@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx5kqmmj3hflx"]
+
+[ext_resource type="Texture2D" uid="uid://ee7qeprmqs03" path="res://assets/city/building/tent.png" id="1_gf6u5"]
+
+[node name="TownHallOutside1" type="Node2D"]
+z_index = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gf6u5")

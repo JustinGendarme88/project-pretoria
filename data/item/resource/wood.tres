@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://h337xkbjexn3"]
+
+[ext_resource type="Texture2D" uid="uid://7yaa62q663wt" path="res://assets/items/resources/plank.png" id="1_5gmov"]
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_trpbp"]
+
+[resource]
+script = ExtResource("1_trpbp")
+id = "wood"
+display_name = "wood"
+description = "wood description"
+icon = ExtResource("1_5gmov")
+item_type = 4
+stackable = true
+max_stack = 999
+sellable = false
+sell_price = 0
+buy_price = 0
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

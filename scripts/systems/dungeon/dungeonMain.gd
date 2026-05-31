@@ -29,7 +29,7 @@ func load_room(room_path: String, entrance_direction: String = "south") -> void:
 
 func load_next_room(exit_direction: String) -> void:
 	var entrance_direction := get_opposite_direction(exit_direction)
-	var next_room_path := DungeonManager.go_to_next_floor()
+	var next_room_path := DungeonManager.go_to_next_floor(exit_direction)
 
 	load_room(next_room_path, entrance_direction)
 

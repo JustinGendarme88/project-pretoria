@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://2elwecp5dtup"]
+
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_jkwhm"]
+
+[resource]
+script = ExtResource("1_jkwhm")
+id = ""
+display_name = ""
+description = ""
+item_type = 0
+stackable = false
+max_stack = 1
+sellable = true
+sell_price = 0
+buy_price = 0
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"

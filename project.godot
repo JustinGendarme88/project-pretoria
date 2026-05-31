@@ -28,6 +28,8 @@ __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 PlayerStats="*res://autoload/PlayerStats.gd"
 QuestManager="*res://autoload/Quest_manager.gd"
 DungeonManager="*res://autoload/Dungeon_manager.gd"
+BuildingManager="*res://autoload/BuildingManager.gd"
+TimeManager="*res://autoload/TimeManager.gd"
 
 [editor_plugins]
 

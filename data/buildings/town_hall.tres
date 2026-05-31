@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=5 format=3 uid="uid://cp6jkqtk3ypfp"]
+
+[ext_resource type="Script" uid="uid://bsfrlf7nppmr1" path="res://scripts/systems/buildings/buildingData.gd" id="1_471fn"]
+[ext_resource type="PackedScene" uid="uid://cx5kqmmj3hflx" path="res://scenes/worlds/city/townHall/townHall_outside_1.tscn" id="1_n6v8b"]
+[ext_resource type="PackedScene" uid="uid://djuqvo0cyair2" path="res://scenes/worlds/city/townHall/townHall_outside_2.tscn" id="2_uejao"]
+[ext_resource type="PackedScene" uid="uid://3uuptyrvm0he" path="res://scenes/worlds/city/townHall/townHall_outside_3.tscn" id="3_y4x2r"]
+
+[resource]
+script = ExtResource("1_471fn")
+id = "town_hall"
+display_name = "Town hall"
+level_1_scene = ExtResource("1_n6v8b")
+level_2_scene = ExtResource("2_uejao")
+level_3_scene = ExtResource("3_y4x2r")
+level_1_cost = {
+"stone": 5,
+"wood": 10
+}
+level_2_cost = {
+"iron_ore": 5,
+"stone": 10,
+"wood": 20
+}
+level_3_cost = {
+"iron_ingot": 5,
+"stone": 20,
+"wood": 30
+}
+metadata/_custom_type_script = "uid://bsfrlf7nppmr1"
