@@ -14,13 +14,16 @@ func _ready() -> void:
 
 
 func start_dialogue(dialogue_json_path: String, npc_id: String = "", npc_data: NPCData = null) -> void:
+
 	if is_dialogue_active:
 		return
 
 	var ink_resource = load(dialogue_json_path)
+
 	if ink_resource == null:
 		push_error("Dialogue file not found: " + dialogue_json_path)
 		return
+
 
 	current_npc_id = npc_id
 	current_npc_data = npc_data
@@ -28,6 +31,7 @@ func start_dialogue(dialogue_json_path: String, npc_id: String = "", npc_data: N
 	story = InkStory.new(ink_resource.json)
 
 	bind_external_functions()
+
 	sync_godot_to_ink()
 
 	is_dialogue_active = true
@@ -35,7 +39,9 @@ func start_dialogue(dialogue_json_path: String, npc_id: String = "", npc_data: N
 	dialogue_ui = get_tree().get_first_node_in_group("dialogue_ui")
 	player = get_tree().get_first_node_in_group("player")
 
-	if player != null:
+
+
+	if player != null and player.has_method("set_state") and "PlayerState" in player:
 		player.set_state(player.PlayerState.DIALOGUE)
 
 	if dialogue_ui != null:
@@ -47,7 +53,6 @@ func start_dialogue(dialogue_json_path: String, npc_id: String = "", npc_data: N
 		dialogue_ui.open_dialogue(starting_portrait)
 
 	continue_story()
-
 
 func continue_story() -> void:
 	if story == null:
@@ -97,7 +102,7 @@ func end_dialogue() -> void:
 	if dialogue_ui != null:
 		dialogue_ui.close_dialogue()
 
-	if player != null:
+	if player != null and player.has_method("set_state") and "PlayerState" in player:
 		player.set_state(player.PlayerState.NORMAL)
 
 	player = null
@@ -181,6 +186,11 @@ func bind_external_functions() -> void:
 	story.bind_external_function("get_flag", self, "_ink_get_flag")
 	story.bind_external_function("change_reputation", self, "_ink_change_reputation")
 	story.bind_external_function("get_reputation", self, "_ink_get_reputation")
+	story.bind_external_function("start_construction", self, "_ink_start_construction")
+	story.bind_external_function("can_start_construction", self, "_ink_can_start_construction")
+	story.bind_external_function("get_building_level", self, "_ink_get_building_level")
+	story.bind_external_function("is_building_under_construction", self, "_ink_is_building_under_construction")
+	story.bind_external_function("get_building_days_remaining", self, "_ink_get_building_days_remaining")
 
 
 func _ink_set_flag(flag_name: String, value) -> void:
@@ -197,3 +207,36 @@ func _ink_change_reputation(npc_id: String, amount: int) -> void:
 
 func _ink_get_reputation(npc_id: String) -> int:
 	return ReputationManager.get_reputation(npc_id)
+
+func _ink_start_construction(building_id: String) -> bool:
+
+	var building_data := BuildingDatabase.get_building(building_id)
+
+	if building_data == null:
+		push_warning("Building not found: " + building_id)
+		return false
+
+	var result := BuildingManager.start_construction(building_data)
+
+
+	return result
+
+func _ink_can_start_construction(building_id: String) -> bool:
+	var building_data := BuildingDatabase.get_building(building_id)
+
+	if building_data == null:
+		return false
+
+	return BuildingManager.can_start_construction(building_data)
+
+
+func _ink_get_building_level(building_id: String) -> int:
+	return BuildingManager.get_level(building_id)
+
+
+func _ink_is_building_under_construction(building_id: String) -> bool:
+	return BuildingManager.is_under_construction(building_id)
+
+
+func _ink_get_building_days_remaining(building_id: String) -> int:
+	return BuildingManager.get_days_remaining(building_id)

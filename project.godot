@@ -30,6 +30,7 @@ QuestManager="*res://autoload/Quest_manager.gd"
 DungeonManager="*res://autoload/Dungeon_manager.gd"
 BuildingManager="*res://autoload/BuildingManager.gd"
 TimeManager="*res://autoload/TimeManager.gd"
+BuildingDatabase="*res://autoload/BuildingDatabase.gd"
 
 [editor_plugins]
 

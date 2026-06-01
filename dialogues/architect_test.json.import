@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://doorccvbifeqy"
+path="res://.godot/imported/architect_test.json-6952825b4350d038f4ce0d47fce4f297.res"
+
+[deps]
+
+source_file="res://dialogues/architect_test.json"
+dest_files=["res://.godot/imported/architect_test.json-6952825b4350d038f4ce0d47fce4f297.res"]
+
+[params]
+
+compress=true

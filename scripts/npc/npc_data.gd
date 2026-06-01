@@ -1,12 +1,18 @@
 extends Resource
 class_name NPCData
 
+@export_group("Architect")
+@export var managed_buildings: Array[BuildingData] = []
+
 enum NPCType {
 	NORMAL,
 	MERCHANT,
 	QUEST_GIVER,
 	COMPANION,
-	ENEMY_NEUTRAL
+	ENEMY_NEUTRAL,
+	ARCHITECT,
+	BLACKSMITH,
+	INNKEEPER
 }
 
 @export var id: String

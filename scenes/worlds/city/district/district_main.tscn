@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://cyftcran0hvrd" path="res://scripts/systems/buildings/district/district_main.gd" id="1_rmvk2"]
 [ext_resource type="Script" uid="uid://dyhwi4v403n7i" path="res://scripts/systems/buildings/buildingSlot.gd" id="2_5k8xn"]
 [ext_resource type="Resource" uid="uid://cp6jkqtk3ypfp" path="res://data/buildings/town_hall.tres" id="3_xravy"]
-[ext_resource type="Script" uid="uid://ccev026nhtvjt" path="res://scripts/player/place_holder.gd" id="4_c061y"]
-[ext_resource type="Texture2D" uid="uid://dlvkvtp1rp4ok" path="res://assets/characters/place_holder.png" id="5_rmvk2"]
-[ext_resource type="Script" uid="uid://wd5k80rsluf3" path="res://scripts/systems/camera/camera_place_holder.gd" id="6_78kuo"]
+[ext_resource type="Script" uid="uid://b5ggq86gjkjt0" path="res://scripts/npc/npc.gd" id="8_8ihlo"]
+[ext_resource type="Resource" uid="uid://do6ov5wrknh7n" path="res://data/npcs/architect.tres" id="9_vieyf"]
+[ext_resource type="Texture2D" uid="uid://ddg20qaqh031a" path="res://assets/portraits/npc/GreenHappy.png" id="10_vieyf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ihlo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj1fd"]
+size = Vector2(123, 124)
 
 [node name="DistrictMain" type="Node2D"]
 script = ExtResource("1_rmvk2")
@@ -26,16 +27,16 @@ position = Vector2(2418, 319)
 script = ExtResource("2_5k8xn")
 building_data = ExtResource("3_xravy")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(2773, 272)
-script = ExtResource("4_c061y")
+[node name="architect" type="CharacterBody2D" parent="."]
+position = Vector2(2731, 234)
+script = ExtResource("8_8ihlo")
+data = ExtResource("9_vieyf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_8ihlo")
+[node name="Sprite2D" type="Sprite2D" parent="architect"]
+texture = ExtResource("10_vieyf")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("5_rmvk2")
+[node name="Area2D" type="Area2D" parent="architect"]
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("6_78kuo")
-target = NodePath("../CharacterBody2D")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="architect/Area2D"]
+position = Vector2(-1.23657, 0.786133)
+shape = SubResource("RectangleShape2D_vj1fd")

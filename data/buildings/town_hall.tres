@@ -13,17 +13,20 @@ level_1_scene = ExtResource("1_n6v8b")
 level_2_scene = ExtResource("2_uejao")
 level_3_scene = ExtResource("3_y4x2r")
 level_1_cost = {
-"stone": 5,
-"wood": 10
+"stone": 0,
+"wood": 0
 }
 level_2_cost = {
-"iron_ore": 5,
-"stone": 10,
-"wood": 20
+"iron_ore": 0,
+"stone": 0,
+"wood": 0
 }
 level_3_cost = {
-"iron_ingot": 5,
-"stone": 20,
-"wood": 30
+"iron_ingot": 0,
+"stone": 0,
+"wood": 0
 }
+level_1_days = 1
+level_2_days = 2
+level_3_days = 3
 metadata/_custom_type_script = "uid://bsfrlf7nppmr1"

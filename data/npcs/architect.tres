@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=4 format=3 uid="uid://do6ov5wrknh7n"]
+
+[ext_resource type="Script" uid="uid://bt7hcivvfa0a7" path="res://scripts/npc/npc_data.gd" id="1_il78g"]
+[ext_resource type="Script" uid="uid://bsfrlf7nppmr1" path="res://scripts/systems/buildings/buildingData.gd" id="1_mlfsx"]
+[ext_resource type="Resource" uid="uid://cp6jkqtk3ypfp" path="res://data/buildings/town_hall.tres" id="2_htqnk"]
+
+[resource]
+script = ExtResource("1_il78g")
+managed_buildings = Array[ExtResource("1_mlfsx")]([ExtResource("2_htqnk")])
+id = "architect"
+display_name = "architect"
+npc_type = 5
+dialogue_path = "uid://be2vg1s6wfwcq"
+merchant_shop_id = ""
+starting_reputation = 0
+metadata/_custom_type_script = "uid://bt7hcivvfa0a7"

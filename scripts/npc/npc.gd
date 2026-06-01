@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 
 		if interaction_prompt != null:
 			interaction_prompt.hide_prompt()
-
+		print("Interact pressed with NPC: ", data.display_name)
 		interact()
 
 
@@ -65,12 +65,16 @@ func interact() -> void:
 
 		NPCData.NPCType.ENEMY_NEUTRAL:
 			interact_dialogue()
-
+			
+		NPCData.NPCType.ARCHITECT:
+			interact_architect()
 		_:
 			interact_dialogue()
 
 
 func interact_dialogue() -> void:
+	print("Start dialogue path: ", data.dialogue_path)
+
 	if data.dialogue_path == "":
 		push_warning("NPC has no dialogue_path: " + data.display_name)
 		return
@@ -136,3 +140,7 @@ func _on_body_exited(body: Node) -> void:
 
 		if interaction_prompt != null:
 			interaction_prompt.hide_prompt()
+
+func interact_architect() -> void:
+	print("Architect interaction")
+	interact_dialogue()

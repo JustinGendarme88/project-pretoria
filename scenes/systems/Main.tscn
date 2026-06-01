@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cmy4jpwo7emtb"]
 
 [ext_resource type="Script" uid="uid://dn2bbvjfp4jgg" path="res://scripts/world/main.gd" id="1_5trm6"]
+[ext_resource type="PackedScene" uid="uid://dou33kd6wnxcv" path="res://scenes/worlds/city/district/district_main.tscn" id="2_3fs6w"]
 [ext_resource type="PackedScene" uid="uid://djjt56r31venk" path="res://scenes/player/Player.tscn" id="2_5trm6"]
 [ext_resource type="PackedScene" uid="uid://b1mrc84bikotn" path="res://scenes/ui/dialogue/DialogueUI.tscn" id="3_a4vpq"]
 [ext_resource type="PackedScene" uid="uid://coldnqsqh4c6l" path="res://scenes/ui/InteractionPrompt.tscn" id="5_a4vpq"]
 [ext_resource type="PackedScene" uid="uid://cijvqiil28dnn" path="res://scenes/ui/in_game_menu/in_game_menu.tscn" id="6_enlt7"]
-[ext_resource type="PackedScene" uid="uid://b0bbrjplwo4ps" path="res://scenes/worlds/intro/intro01.tscn" id="7_odtxi"]
 [ext_resource type="PackedScene" uid="uid://lf8mkvaeutpw" path="res://scenes/ui/hud/player_hud.tscn" id="7_op12d"]
 [ext_resource type="Script" uid="uid://dw4eyttc8ucb2" path="res://scripts/systems/transition/transitionFade.gd" id="8_odtxi"]
 [ext_resource type="Script" uid="uid://dvnlbnfl6mmu5" path="res://scripts/systems/transition/locationBanner.gd" id="9_3fs6w"]
@@ -15,10 +15,10 @@ script = ExtResource("1_5trm6")
 
 [node name="WorldContainer" type="Node2D" parent="."]
 
-[node name="Intro01" parent="WorldContainer" instance=ExtResource("7_odtxi")]
+[node name="DistrictMain" parent="WorldContainer" instance=ExtResource("2_3fs6w")]
 
 [node name="Player" parent="." instance=ExtResource("2_5trm6")]
-position = Vector2(1110, -426)
+position = Vector2(2263, 719)
 
 [node name="DialogueUi" parent="." instance=ExtResource("3_a4vpq")]
 
