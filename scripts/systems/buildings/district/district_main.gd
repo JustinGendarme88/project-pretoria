@@ -1,6 +1,11 @@
 extends Node2D
 
+@onready var merchant_shop_ui: CanvasLayer = get_tree().current_scene.get_node("MerchantShopUi")
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		TimeManager.advance_day()
+func _ready() -> void:
+	await get_tree().process_frame
+	
+	EconomyManager.gold = 100
+	
+	var merchant: MerchantData = preload("res://data/merchants/blacksmith_merchant.tres")
+	merchant_shop_ui.open_shop(merchant)

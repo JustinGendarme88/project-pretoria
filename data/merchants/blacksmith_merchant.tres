@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MerchantData" load_steps=5 format=3 uid="uid://cvh5vxree4o6i"]
+
+[ext_resource type="Script" uid="uid://bpls5hfh2skqc" path="res://scripts/merchants/merchant_data.gd" id="1_tryx5"]
+[ext_resource type="Script" uid="uid://buo25btv8sbfb" path="res://scripts/merchants/merchant_stock_entry.gd" id="2_klj1x"]
+[ext_resource type="Resource" uid="uid://bdxu6quwl303n" path="res://data/item/gear/iron_sword.tres" id="3_klj1x"]
+
+[sub_resource type="Resource" id="Resource_0cpmj"]
+script = ExtResource("2_klj1x")
+item = ExtResource("3_klj1x")
+quantity = 5
+custom_buy_price = 0
+custom_sell_price = 0
+metadata/_custom_type_script = "uid://buo25btv8sbfb"
+
+[resource]
+script = ExtResource("1_tryx5")
+merchant_id = "blacksmith"
+merchant_name = "blacksmith"
+gold = 100
+buy_multiplier = 1.0
+sell_multiplier = 1.0
+stock = Array[ExtResource("2_klj1x")]([SubResource("Resource_0cpmj")])

@@ -38,7 +38,7 @@ func refresh_inventory() -> void:
 	for child in grid_container.get_children():
 		child.queue_free()
 
-	for item in GameManager.inventory:
+	for item in InventoryManager.get_all_items():
 		if item == null:
 			continue
 
@@ -87,7 +87,7 @@ func drop_selected_item() -> void:
 	if selected_item.item_type == ItemData.ItemType.QUEST:
 		return
 
-	GameManager.inventory.erase(selected_item)
+	InventoryManager.remove_item(selected_item)
 	selected_item = null
 	clear_item_details()
 	refresh_inventory()

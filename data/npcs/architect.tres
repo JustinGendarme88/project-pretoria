@@ -6,11 +6,10 @@
 
 [resource]
 script = ExtResource("1_il78g")
-managed_buildings = Array[ExtResource("1_mlfsx")]([ExtResource("2_htqnk")])
 id = "architect"
 display_name = "architect"
 npc_type = 5
 dialogue_path = "uid://be2vg1s6wfwcq"
-merchant_shop_id = ""
+managed_buildings = Array[ExtResource("1_mlfsx")]([ExtResource("2_htqnk")])
 starting_reputation = 0
 metadata/_custom_type_script = "uid://bt7hcivvfa0a7"

@@ -31,6 +31,8 @@ DungeonManager="*res://autoload/Dungeon_manager.gd"
 BuildingManager="*res://autoload/BuildingManager.gd"
 TimeManager="*res://autoload/TimeManager.gd"
 BuildingDatabase="*res://autoload/BuildingDatabase.gd"
+EconomyManager="*res://autoload/Economy_manager.gd"
+MerchantManager="*res://autoload/Merchant_manager.gd"
 
 [editor_plugins]
 

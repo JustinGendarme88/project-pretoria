@@ -1,9 +1,6 @@
 extends Resource
 class_name NPCData
 
-@export_group("Architect")
-@export var managed_buildings: Array[BuildingData] = []
-
 enum NPCType {
 	NORMAL,
 	MERCHANT,
@@ -20,7 +17,12 @@ enum NPCType {
 @export var npc_type: NPCType = NPCType.NORMAL
 
 @export_file("*.json") var dialogue_path: String = ""
-@export var merchant_shop_id: String = ""
+
+@export_group("Merchant")
+@export var merchant_data: MerchantData
+
+@export_group("Architect")
+@export var managed_buildings: Array[BuildingData] = []
 
 @export_group("Portraits")
 @export var neutral_portrait: Texture2D

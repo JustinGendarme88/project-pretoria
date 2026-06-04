@@ -9,12 +9,11 @@
 
 [resource]
 script = ExtResource("1_4jlqv")
-managed_buildings = Array[ExtResource("3_1m0ta")]([])
 id = "karlach"
 display_name = "Karlach"
 npc_type = 0
 dialogue_path = "uid://cjr478hv7ttvd"
-merchant_shop_id = ""
+managed_buildings = Array[ExtResource("3_1m0ta")]([])
 neutral_portrait = ExtResource("3_dnmhq")
 happy_portrait = ExtResource("2_1m0ta")
 angry_portrait = ExtResource("1_r4fjn")
