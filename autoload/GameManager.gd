@@ -19,11 +19,15 @@ var gold: int = 0
 var transition_fade: CanvasLayer = null
 var location_banner: CanvasLayer = null
 
-
+var is_time_transition := false
+var time_transition: CanvasLayer = null
 
 func _ready() -> void:
 	inventory.append(test_sword)
 
+func register_time_transition(node: CanvasLayer) -> void:
+	time_transition = node
+	
 func register_location_banner(banner_node: CanvasLayer) -> void:
 	location_banner = banner_node
 

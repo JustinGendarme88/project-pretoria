@@ -1,7 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://da7lc3hp6cwxh"]
+[gd_scene load_steps=9 format=3 uid="uid://da7lc3hp6cwxh"]
 
 [ext_resource type="Script" uid="uid://5xbbqlccar88" path="res://scripts/ui/merchant_shop_ui.gd" id="1_blb62"]
 [ext_resource type="PackedScene" uid="uid://cf0heshut1ogk" path="res://scenes/ui/inventory_slot.tscn" id="2_7booh"]
+[ext_resource type="Texture2D" uid="uid://b7hmhn2th8bws" path="res://assets/ui/dialogue/dialBoxV10.png" id="3_7booh"]
+[ext_resource type="Theme" uid="uid://d2tjyptlegkrs" path="res://assets/ui/button_theme.tres" id="4_fgt1h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgt1h"]
+texture = ExtResource("3_7booh")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ffs"]
+texture = ExtResource("3_7booh")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d5l1e"]
+texture = ExtResource("3_7booh")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6oh2"]
+texture = ExtResource("3_7booh")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 
 [node name="MerchantShopUi" type="CanvasLayer"]
 layer = 10
@@ -30,11 +60,21 @@ offset_right = 450.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fgt1h")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -237.5
+offset_right = 425.0
+offset_bottom = 237.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Root/Panel/MarginContainer"]
 layout_mode = 2
@@ -59,12 +99,17 @@ layout_mode = 2
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_78ffs")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Root/Panel/MarginContainer/VBoxContainer/HBoxContainer/MerchantPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -10.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -79,12 +124,17 @@ columns = 4
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_d5l1e")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Root/Panel/MarginContainer/VBoxContainer/HBoxContainer/PlayerPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = -15.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -99,11 +149,19 @@ columns = 4
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_g6oh2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Panel/MarginContainer/VBoxContainer/HBoxContainer/DetailsPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Root/Panel/MarginContainer/VBoxContainer/HBoxContainer/DetailsPanel/MarginContainer"]
 layout_mode = 2
@@ -120,9 +178,11 @@ layout_mode = 2
 [node name="ActionButton" type="Button" parent="Root/Panel/MarginContainer/VBoxContainer/HBoxContainer/DetailsPanel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme = ExtResource("4_fgt1h")
 text = "action"
 
 [node name="CloseButton" type="Button" parent="Root/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme = ExtResource("4_fgt1h")
 text = "close"
