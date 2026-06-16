@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bbegjmimmeylq"]
+
+[ext_resource type="Texture2D" uid="uid://basropergwf0i" path="res://assets/items/resources/silver_ore.png" id="1_14f7f"]
+[ext_resource type="Script" uid="uid://t5qr6auh3ujj" path="res://scripts/systems/items/item_data.gd" id="1_gen4y"]
+
+[resource]
+script = ExtResource("1_gen4y")
+id = "silver_ore"
+display_name = "silver ore"
+description = "silver ore"
+icon = ExtResource("1_14f7f")
+weight = 0.0
+rarity = 0
+item_type = 4
+stackable = false
+max_stack = 99
+buy_price = 0
+sell_price = 0
+sellable = true
+quest_item = false
+metadata/_custom_type_script = "uid://t5qr6auh3ujj"
