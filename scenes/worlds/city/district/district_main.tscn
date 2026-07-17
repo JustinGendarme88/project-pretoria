@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dou33kd6wnxcv"]
+[gd_scene load_steps=14 format=4 uid="uid://dou33kd6wnxcv"]
 
 [ext_resource type="TileSet" uid="uid://bhpfilyolmvaw" path="res://assets/tilesets/tile_set_A_B.tres" id="1_3kgpf"]
 [ext_resource type="Script" uid="uid://cyftcran0hvrd" path="res://scripts/systems/buildings/district/district_main.gd" id="1_rmvk2"]
@@ -7,7 +7,11 @@
 [ext_resource type="Script" uid="uid://b5ggq86gjkjt0" path="res://scripts/npc/npc.gd" id="8_8ihlo"]
 [ext_resource type="PackedScene" uid="uid://bvjr5uo4lj45g" path="res://scenes/interactables/bed_interaction.tscn" id="8_78kuo"]
 [ext_resource type="Resource" uid="uid://do6ov5wrknh7n" path="res://data/npcs/architect.tres" id="9_vieyf"]
+[ext_resource type="PackedScene" uid="uid://5dqnp0di6qb4" path="res://scenes/enemies/yellow_eye.tscn" id="9_vj1fd"]
+[ext_resource type="PackedScene" uid="uid://b42dml5ojjoii" path="res://scenes/enemies/action/enemy_projectile.tscn" id="10_awssb"]
 [ext_resource type="Texture2D" uid="uid://ddg20qaqh031a" path="res://assets/portraits/npc/GreenHappy.png" id="10_vieyf"]
+[ext_resource type="Resource" uid="uid://c0t7t25u7wbrx" path="res://data/enemy/yellow_eye.tres" id="11_44yl2"]
+[ext_resource type="PackedScene" uid="uid://cvijmfj6sgkd6" path="res://scenes/enemies/blue_eye.tscn" id="12_awssb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj1fd"]
 size = Vector2(123, 124)
@@ -47,5 +51,13 @@ position = Vector2(2236, 231)
 
 [node name="CollisionShape2D" parent="BedInteraction" index="0"]
 position = Vector2(4, 4)
+
+[node name="YellowEye" parent="." instance=ExtResource("9_vj1fd")]
+position = Vector2(2684, 484)
+projectile_scene = ExtResource("10_awssb")
+data = ExtResource("11_44yl2")
+
+[node name="BlueEye" parent="." instance=ExtResource("12_awssb")]
+position = Vector2(2295, 404)
 
 [editable path="BedInteraction"]

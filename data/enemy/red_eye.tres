@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://d02byalua11qi"]
+
+[ext_resource type="Script" uid="uid://vmiho23vy4g3" path="res://scripts/systems/enemies/enemy_data.gd" id="1_qn424"]
+[ext_resource type="Texture2D" uid="uid://ve680sd2flk4" path="res://assets/enemies/test/red-eye.png" id="2_7hs8d"]
+
+[resource]
+script = ExtResource("1_qn424")
+enemy_id = ""
+display_name = "Enemy"
+texture = ExtResource("2_7hs8d")
+scale_multiplier = 1.0
+max_hp = 10
+attack = 2
+defense = 0
+move_speed = 60.0
+critical_chance = 0.05
+critical_multiplier = 1.5
+element = "None"
+combat_type = "Melee"
+attack_range = 24.0
+detection_range = 160.0
+attack_cooldown = 1.0
+movement_type = "Normal"
+experience_reward = 1
+gold_reward = 0
+loot_table = Array[Resource]([])
+metadata/_custom_type_script = "uid://vmiho23vy4g3"

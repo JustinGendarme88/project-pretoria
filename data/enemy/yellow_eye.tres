@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c0t7t25u7wbrx"]
+
+[ext_resource type="Script" uid="uid://vmiho23vy4g3" path="res://scripts/systems/enemies/enemy_data.gd" id="1_c6f4m"]
+[ext_resource type="Texture2D" uid="uid://32pci5t2ua7f" path="res://assets/enemies/test/yellow-eye.png" id="2_3hvs4"]
+
+[resource]
+script = ExtResource("1_c6f4m")
+enemy_id = ""
+display_name = "yellow eye"
+texture = ExtResource("2_3hvs4")
+scale_multiplier = 1.0
+max_hp = 10
+attack = 2
+defense = 0
+move_speed = 0.0
+critical_chance = 0.05
+critical_multiplier = 1.5
+element = "None"
+combat_type = "Ranged"
+attack_range = 180.0
+detection_range = 240.0
+attack_cooldown = 0.25
+movement_type = "Static"
+experience_reward = 1
+gold_reward = 0
+loot_table = Array[Resource]([])
+metadata/_custom_type_script = "uid://vmiho23vy4g3"

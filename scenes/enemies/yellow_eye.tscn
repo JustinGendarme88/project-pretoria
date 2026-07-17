@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://5dqnp0di6qb4"]
+
+[ext_resource type="Script" uid="uid://bs2a8fd0x54xd" path="res://scripts/systems/enemies/types/rapid_shooter_enemy.gd" id="1_qyjyg"]
+[ext_resource type="Texture2D" uid="uid://32pci5t2ua7f" path="res://assets/enemies/test/yellow-eye.png" id="2_x6am0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6am0"]
+radius = 16.2788
+
+[node name="YellowEye" type="CharacterBody2D"]
+script = ExtResource("1_qyjyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x6am0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x6am0")
+
+[node name="AttackCooldown" type="Timer" parent="."]

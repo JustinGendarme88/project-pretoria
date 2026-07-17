@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://n4hpjtfngbjq"]
+
+[ext_resource type="Script" uid="uid://vmiho23vy4g3" path="res://scripts/systems/enemies/enemy_data.gd" id="1_1ies2"]
+[ext_resource type="Texture2D" uid="uid://c6d6wr4m4mym0" path="res://assets/enemies/test/blue-eye.png" id="2_pg6tm"]
+
+[resource]
+script = ExtResource("1_1ies2")
+enemy_id = ""
+display_name = "blue eye"
+texture = ExtResource("2_pg6tm")
+scale_multiplier = 1.0
+max_hp = 10
+attack = 2
+defense = 0
+move_speed = 60.0
+critical_chance = 0.05
+critical_multiplier = 1.5
+element = "None"
+combat_type = "Ranged"
+attack_range = 220.0
+detection_range = 260.0
+attack_cooldown = 1.0
+movement_type = "Static"
+experience_reward = 1
+gold_reward = 0
+loot_table = Array[Resource]([])
+metadata/_custom_type_script = "uid://vmiho23vy4g3"

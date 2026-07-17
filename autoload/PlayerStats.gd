@@ -9,11 +9,11 @@ signal player_died
 var level: int = 1
 var experience: int = 0
 
-var max_health: int = 100
+var max_health: int = 5
 var max_energy: int = 100
 var max_spirit: int = 100
 
-var current_health: int = 100
+var current_health: int = 5
 var current_energy: int = 100
 var current_spirit: int = 100
 
