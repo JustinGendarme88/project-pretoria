@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfi60vdb6b4p2"]
+
+[ext_resource type="Script" uid="uid://cjwp13ydmn4co" path="res://scripts/systems/enemies/types/charged_shooter_enemy.gd" id="1_lpxiv"]
+[ext_resource type="Texture2D" uid="uid://ve680sd2flk4" path="res://assets/enemies/test/red-eye.png" id="2_gdhxv"]
+[ext_resource type="PackedScene" uid="uid://b42dml5ojjoii" path="res://scenes/enemies/action/enemy_projectile.tscn" id="2_mr60j"]
+[ext_resource type="Resource" uid="uid://d02byalua11qi" path="res://data/enemy/red_eye.tres" id="3_mr60j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_id7rh"]
+radius = 17.0294
+
+[node name="RedEye" type="CharacterBody2D"]
+script = ExtResource("1_lpxiv")
+projectile_scene = ExtResource("2_mr60j")
+data = ExtResource("3_mr60j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gdhxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_id7rh")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[node name="ChargeTimer" type="Timer" parent="."]
+one_shot = true
