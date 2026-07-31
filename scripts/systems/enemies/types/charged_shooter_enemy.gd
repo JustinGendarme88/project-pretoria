@@ -14,7 +14,6 @@ var charged_target: Node2D = null
 
 @onready var charge_timer: Timer = $ChargeTimer
 
-
 func _ready() -> void:
 	super._ready()
 

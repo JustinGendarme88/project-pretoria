@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsfrlf7nppmr1" path="res://scripts/systems/buildings/buildingData.gd" id="1_5fxoh"]
 [ext_resource type="Script" uid="uid://bt7hcivvfa0a7" path="res://scripts/npc/npc_data.gd" id="2_8p07l"]
-[ext_resource type="Resource" uid="uid://67ywcccxkhgx" path="res://data/merchants/blacksmith_merchant.tres" id="2_mfssl"]
+[ext_resource type="Resource" uid="uid://cvh5vxree4o6i" path="res://data/merchants/blacksmith_merchant.tres" id="2_mfssl"]
 
 [resource]
 script = ExtResource("2_8p07l")
