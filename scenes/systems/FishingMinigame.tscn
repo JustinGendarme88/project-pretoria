@@ -1,0 +1,162 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0njjcosi6c8q"]
+
+[ext_resource type="Texture2D" uid="uid://jtq1x7r0bjfj" path="res://assets/tilesets/TileSetFishing.png" id="1_35pvc"]
+[ext_resource type="Script" uid="uid://djqnpft6btorn" path="res://scripts/systems/minigame/fishing_minigame.gd" id="1_vscth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bafk1"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj863"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vscth"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(72, 64, 16, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35pvc"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(40, 8, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3dmx"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x866"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(96, 40, 96, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpupy"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(96, 72, 96, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsiex"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(96, 104, 96, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbo1i"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(96, 8, 96, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07r4p"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drxk5"]
+atlas = ExtResource("1_35pvc")
+region = Rect2(32, 96, 32, 32)
+
+[node name="FishingMinigame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vscth")
+fish_up_texture = SubResource("AtlasTexture_bafk1")
+fish_down_texture = SubResource("AtlasTexture_uj863")
+
+[node name="DarkBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="MinigamePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -128.0
+offset_right = 96.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FishingBar" type="Control" parent="MinigamePanel"]
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 56.0
+offset_bottom = 216.0
+
+[node name="BarBackground" type="NinePatchRect" parent="MinigamePanel/FishingBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vscth")
+patch_margin_top = 32
+patch_margin_bottom = 32
+axis_stretch_vertical = 1
+
+[node name="CaptureZone" type="NinePatchRect" parent="MinigamePanel/FishingBar"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 32.0
+offset_bottom = 192.0
+texture = SubResource("AtlasTexture_35pvc")
+patch_margin_top = 16
+patch_margin_bottom = 16
+axis_stretch_vertical = 1
+
+[node name="FishIcon" type="TextureRect" parent="MinigamePanel/FishingBar"]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 32.0
+offset_bottom = 80.0
+texture = SubResource("AtlasTexture_l3dmx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CaptureProgress" type="TextureProgressBar" parent="MinigamePanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 168.0
+offset_bottom = 88.0
+texture_over = SubResource("AtlasTexture_3x866")
+texture_progress = SubResource("AtlasTexture_wpupy")
+
+[node name="EscapeProgress" type="TextureProgressBar" parent="MinigamePanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 112.0
+offset_right = 168.0
+offset_bottom = 128.0
+texture_over = SubResource("AtlasTexture_bsiex")
+texture_progress = SubResource("AtlasTexture_pbo1i")
+
+[node name="SuccessIcon" type="TextureRect" parent="MinigamePanel"]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 152.0
+offset_right = 112.0
+offset_bottom = 184.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_07r4p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FailureIcon" type="TextureRect" parent="MinigamePanel"]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 152.0
+offset_right = 112.0
+offset_bottom = 184.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_drxk5")
+expand_mode = 1
+stretch_mode = 5
